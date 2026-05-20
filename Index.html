@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorise-Djanete Lekombo | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f7f3f9; /* Beige très clair aux nuances violettes */
+            --text-color: #2d2a29;
+            --primary-color: #5d3f8a; /* Violet élégant et professionnel */
+            --accent-color: #e5b3a3; /* Teinte douce et chaleureuse assortie au bandeau */
+            --card-bg: #ffffff;
+            --border-color: #e2dfda;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        /* Barre de Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        /* Titres des Sections */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+
+        /* Accueil / Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding-top: 3rem;
+        }
+
+        .profile-picture-container {
+            flex: 0 0 380px;
+            width: 380px;
+            height: 480px;
+            background-color: #fff;
+            border-radius: 24px;
+            border: 2px solid var(--primary-color);
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(93, 63, 138, 0.08);
+            position: relative;
+        }
+
+        .profile-picture-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #6b6661;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #57524e;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #4a3170;
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 6px;
+        }
+
+        /* Bloc Projet Professionnel */
+        .career-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+
+        .career-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .career-box p {
+            color: #57524e;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .keywords-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .keyword-badge {
+            background-color: rgba(93, 63, 138, 0.05);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Grille des Projets Scolaires */
+        .project-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 2rem 0;
+            margin-left: -2rem;
+        }
+
+        .project-cell {
+            width: 33.333%;
+            vertical-align: top;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(93, 63, 138, 0.06);
+        }
+
+        .project-img-placeholder {
+            width: 100%;
+            height: 160px;
+            background-color: #f1efec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a39e99;
+            font-size: 2.5rem;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .project-info p {
+            color: #6b6661;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            min-height: 70px;
+        }
+
+        /* Zone des Compétences */
+        .skills-container {
+            background-color: #f4f2ef;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0.6rem;
+            color: var(--text-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        /* Section Contact */
+        .contact-section {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-section p {
+            color: #6b6661;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Pied de page */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+            color: #8c8680;
+            font-size: 0.95rem;
+        }
+
+        /* Version Mobile Adaptative */
+        @media (max-width: 900px) {
+            .hero-section {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            .profile-picture-container {
+                flex: 0 0 300px;
+                width: 300px;
+                height: 380px;
+            }
+            .project-table, .project-table tbody, .project-table tr, .project-cell {
+                display: block;
+                width: 100%;
+            }
+            .project-cell {
+                margin-bottom: 2rem;
+                padding-left: 2rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Lekombo Djanete.</div>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projet">Projet Pro</a></li>
+                <li><a href="#projets-scolaires">Projets</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil">
+        <div class="hero-section">
+            <div class="profile-picture-container">
+                <img src="c:\Users\LORISE\Documents\WhatsApp Image 2026-05-19 at 17.27.50.jpeg" alt="Lorise-Djanete Lekombo">
+            </div>
+            <div class="hero-text">
+                <h1>Bonjour, je suis<br>Lorise-Djanete Lekombo</h1>
+                <h2>Étudiante Congolaise en Licence Informatique de Gestion</h2>
+                <p>Passionnée par les systèmes d'information, la logique applicative et l'analyse de données. J'allie les connaissances de la gestion d'entreprise aux technologies numériques pour concevoir des outils adaptés et efficaces.</p>
+                <a href="#contact" class="btn">Me Contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projet">
+        <h2 class="section-title">Mon Projet Professionnel</h2>
+        <div class="career-box">
+            <h3>Objectif : Conceptrice-Développeuse d'Applications de Gestion</h3>
+            <p>
+                Mon but est de valoriser la double compétence technique et administrative acquise durant ma Licence. Je souhaite concevoir, programmer et faire évoluer les systèmes informatiques internes des entreprises (comme des applications de facturation, de gestion de stocks ou des outils d'aide à la décision) afin d'automatiser et de simplifier leurs activités.
+            </p>
+            <div class="keywords-container">
+                <div class="keyword-badge">🚀 Génie Logiciel</div>
+                <div class="keyword-badge">📊 Business Intelligence</div>
+                <div class="keyword-badge">💼 Architecture des Systèmes d'Information</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets-scolaires">
+        <h2 class="section-title">Mes Travaux & Applications</h2>
+        <table class="project-table">
+            <tr>
+                <td class="project-cell">
+                    <div class="project-card">
+                        <div class="project-img-placeholder">☕</div>
+                        <div class="project-info">
+                            <h3>Applications Orientées Objet</h3>
+                            <p>Modélisation et développement de modules logiques complexes et traitement des données en utilisant Java et C#.</p>
+                            <a href="#" class="btn btn-sm">Détails</a>
+                        </div>
+                    </div>
+                </td>
+                <td class="project-cell">
+                    <div class="project-card">
+                        <div class="project-img-placeholder">🐍</div>
+                        <div class="project-info">
+                            <h3>Algorithmes & Automatisation</h3>
+                            <p>Création de scripts d'analyse et résolution de problèmes de calculs de gestion grâce à des programmes Python.</p>
+                            <a href="#" class="btn btn-sm">Détails</a>
+                        </div>
+                    </div>
+                </td>
+                <td class="project-cell">
+                    <div class="project-card">
+                        <div class="project-img-placeholder">🌐</div>
+                        <div class="project-info">
+                            <h3>Développement Web</h3>
+                            <p>Conception et mise en page d'interfaces utilisateurs claires, dynamiques et interactives avec HTML5 et JavaScript.</p>
+                            <a href="#" class="btn btn-sm">Détails</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="competences">
+        <h2 class="section-title">Compétences Apprises à l'École</h2>
+        <div class="skills-container">
+            <div class="skill-tag" style="border-left: 4px solid #ea2d2e;">Java</div>
+            <div class="skill-tag" style="border-left: 4px solid #512bd4;">C# (.NET)</div>
+            <div class="skill-tag" style="border-left: 4px solid #3776ab;">Python</div>
+            <div class="skill-tag" style="border-left: 4px solid #f0db4f;">JavaScript</div>
+            <div class="skill-tag" style="border-left: 4px solid #e34c26;">HTML5 / CSS3</div>
+            <div class="skill-tag" style="border-left: 4px solid var(--primary-color);">Bases de Données (SQL)</div>
+            <div class="skill-tag" style="border-left: 4px solid var(--primary-color);">Comptabilité & Gestion</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Un projet à concevoir ?</h2>
+            <p>Actuellement à l'écoute d'opportunités professionnelles, de stages ou de collaborations dans le domaine des technologies de gestion.</p>
+            <a href="mailto:goumeliloko19@icloud.com" class="btn">Envoyer un e-mail</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Lorise-Djanete Lekombo. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
